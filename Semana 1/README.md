@@ -54,5 +54,5 @@ Este projeto conceitual de data center visa atender às necessidades específica
 
 ## Autores
 
-- **Nome do Autor**: [Seu Nome]
+- **Nome do Autor**: Daniel Calliari
 - **Data**: 11 de fevereiro de 2025
