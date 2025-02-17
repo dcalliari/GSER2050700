@@ -1,0 +1,445 @@
+%% abtex2-modelo-trabalho-academico.tex, v-1.9.2 laurocesar
+%% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://abntex2.googlecode.com/
+%%
+%% This work consists of the files abntex2-modelo-trabalho-academico.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
+% mestrado e trabalhos monograficos em geral) em conformidade com 
+% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
+% Apresentacao
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------
+% Modelo adaptado especificamente para o contexto do PPgSI-EACH-USP por 
+% Marcelo Fantinato, com auxílio dos Professores Norton T. Roman, Helton
+% H. Bíscaro e Sarajane M. Peres, em 2015, com muitos agradecimentos aos 
+% criadores da classe e do modelo base.
+%
+% 20/06/2017: inclusão de "lista de quadros" com base no especificado em:
+% https://github.com/abntex/abntex2/wiki/HowToCriarNovoAmbienteListing,
+% de autoria de "Eduardo de Santana Medeiros Alexandre".
+%
+%-------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	% openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão apenas no anverso (apenas frente). Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	%french,				% idioma adicional para hifenização
+	%spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	]{abntex2unama}
+
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{pdfpages}     %para incluir pdf
+\usepackage{algorithm}			%para ilustrações do tipo algoritmo
+\usepackage{mdwlist}			%para itens com espaço padrão da abnt
+\usepackage[noend]{algpseudocode}			%para ilustrações do tipo algoritmo
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage{hyperref}
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf,abnt-etal-list=0,abnt-etal-text=it]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``instituicao'':
+%
+% Não mexer. Deixar exatamente como está.
+%
+%-------------------------------------------------------------------------
+\instituicao{
+	UNIVERSIDADE DA AMAZÔNIA
+	\par
+	CURSO DE BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO
+	\par
+	DISCIPLINA DE INFRAESTRUTURA DE DATACENTERS
+	}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``título'':
+%
+% Em maiúscula apenas a primeira letra da sentença (do título), exceto 
+% nomes próprios, geográficos, institucionais ou Programas ou Projetos ou 
+% siglas, os quais podem ter letras em maiúscula também.
+%
+% O subtítulo do trabalho é opcional.
+% Sem ponto final.
+%
+% Atenção: o título da Dissertação/Tese na versão corrigida não pode mudar. 
+% Ele deve ser idêntico ao da versão original.
+%
+%-------------------------------------------------------------------------
+\titulo{Projeto Conceitual de Data Center para uma Empresa de E-commerce}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``autor'':
+%
+% Todas as letras em maiúsculas.
+% Nome completo.
+% Sem ponto final.
+% Para adicionar mais de um autor, basta acrescentar \\ entre os autores.
+%-------------------------------------------------------------------------
+\autor{\uppercase{Daniel Bahia Pinheiro Calliari}}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``local'':
+%
+% Não incluir o ``estado''.
+% Sem ponto final.
+%-------------------------------------------------------------------------
+\local{Belém}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre a ``data'':
+%
+% Colocar o ano do depósito (ou seja, o ano da entrega) da respectiva 
+% versão, seja ela a versão original (para a defesa) seja ela a versão 
+% corrigida (depois da aprovação na defesa). 
+%
+% Atenção: Se a versão original for depositada no final do ano e a versão 
+% corrigida for entregue no ano seguinte, o ano precisa ser atualizado no 
+% caso da versão corrigida. 
+% Cuidado, pois o ano da ``capa externa'' também precisa ser atualizado 
+% nesse caso.
+%
+% Não incluir o dia, nem o mês.
+% Sem ponto final.
+%-------------------------------------------------------------------------
+\data{2025}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``Orientador'':
+%
+% Se for uma professora, trocar por ``Profa. Dra.''
+% Nome completo.
+% Sem ponto final.
+%-------------------------------------------------------------------------
+\orientador{Prof. Dr. Fulano de Tal}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``Coorientador'':
+%
+% Opcional. Incluir apenas se houver co-orientador formal, de acordo com o 
+% Regulamento do Programa.
+%
+% Se for uma professora, trocar por ``Profa. Dra.''
+% Nome completo.
+% Sem ponto final.
+%-------------------------------------------------------------------------
+\coorientador{Prof. Dr. Fulano de Tal}
+
+\tipotrabalho{Dissertação (Mestrado) / Tese (Doutorado)}
+
+\preambulo{
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o texto ``Versão 
+% original'':
+%
+% Não usar para Qualificação.
+% Não usar para versão corrigida de Dissertação/Tese.
+%
+%-------------------------------------------------------------------------
+Versão original \newline \newline \newline 
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``texto principal do
+% preambulo'':
+%
+% Para Doutorado, trocar por: Tese apresentada à Escola de Artes, Ciências e Humanidades da Universidade de São Paulo para obtenção do título de Doutor (ou Doutora) em Ciências pelo Programa de Pós-graduação em Sistemas de Informação. 
+%
+% Para Qualificação, trocar por: Projeto de pesquisa para exame de qualificação apresentado à Escola de Artes, Ciências e Humanidades da Universidade de São Paulo como parte dos requisitos para obtenção do título de Mestre (ou Doutor ou Doutora) em Ciências pelo Programa de Pós-graduação em Sistemas de Informação.
+%
+%-------------------------------------------------------------------------
+Trabalho acadêmico apresentado à Universidade da Amazônia como parte de disciplinas do Curso de Bacharelado em Ciência da Computação.
+%
+\newline \newline Área de concentração: Infraestrutura de Datacenters
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o texto da ``Versão 
+% corrigida'':
+%
+% Não usar para Qualificação.
+% Não usar para versão original de Dissertação/Tese.
+% 
+% Substituir ``xx de xxxxxxxxxxxxxxx de xxxx'' pela ``data da defesa''.
+%
+%-------------------------------------------------------------------------
+% \newline \newline \newline Versão corrigida contendo as alterações solicitadas pela comissão julgadora em xx de xxxxxxxxxxxxxxx de xxxx. A versão original encontra-se em acervo reservado na Biblioteca da EACH-USP e na Biblioteca Digital de Teses e Dissertações da USP (BDTD), de acordo com a Resolução CoPGr 6018, de 13 de outubro de 2011.
+}
+% ---
+
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={laTeX com abnTeX2 adaptado para a UNAMA/ALC},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2unama}{trabalho acadêmico}{unama}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.25cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0cm}  % tente também \onelineskip
+\renewcommand{\baselinestretch}{1.5}
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+	% Controlar linhas orfas e viuvas
+  \clubpenalty10000
+  \widowpenalty10000
+  \displaywidowpenalty10000
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre a ``capa'':
+%
+% Esta é a ``capa'' principal/oficial do trabalho, a ser impressa apenas 
+% para os casos de encadernação simples (ou seja, em ``espiral'' com 
+% plástico na frente).
+% 
+% Não imprimir esta ``capa'' quando houver ``capa dura'' ou ``capa brochura'' 
+% em que estas mesmas informações já estão presentes nela.
+%
+%-------------------------------------------------------------------------
+\imprimircapa
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre ``títulos de seções''
+% 
+% Para todos os títulos (seções, subseções, tabelas, ilustrações, etc.):
+%
+% Em maiúscula apenas a primeira letra da sentença (do título), exceto 
+% nomes próprios, geográficos, institucionais ou Programas ou Projetos ou
+% siglas, os quais podem ter letras em maiúscula também.
+%
+%-------------------------------------------------------------------------
+\chapter{Objetivo}
+O objetivo deste projeto é desenvolver um projeto conceitual detalhado de um data center de alta disponibilidade e escalabilidade para uma empresa de e-commerce de médio a grande porte. Este projeto visa não apenas identificar os requisitos essenciais de um data center moderno, mas também propor soluções inovadoras e eficientes, juntamente com um esquema de layout otimizado. O objetivo final é garantir a operação contínua, segura e eficiente da empresa, minimizando o tempo de inatividade e maximizando a performance.
+
+\chapter{Requisitos Detalhados do Projeto}
+
+\section{Localização Estratégica}
+
+\begin{itemize}
+	\item \textbf{Proximidade com Múltiplos Hubs de Internet}: A localização deve ser estrategicamente próxima a múltiplos hubs de internet (pelo menos dois) para garantir redundância de conectividade e minimizar a latência. A proximidade com pontos de troca de tráfego (IXPs) é altamente desejável.
+	\item \textbf{Acessibilidade Otimizada}: A área deve oferecer fácil acesso para equipes de manutenção, suporte técnico e logística, com boas conexões rodoviárias e aeroportuárias.
+	\item \textbf{Mitigação de Riscos Ambientais}: Realizar uma análise detalhada de riscos ambientais, incluindo inundações, terremotos, tempestades, incêndios florestais e outros desastres naturais. Implementar medidas preventivas e de mitigação adequadas.
+	\item \textbf{Disponibilidade de Infraestrutura}: Verificar a disponibilidade de infraestrutura essencial, como fornecimento de água, esgoto, gás natural e telecomunicações.
+	\item \textbf{Regulamentação e Zoneamento}: Garantir que a localização esteja em conformidade com as regulamentações locais de zoneamento e ambientais.
+\end{itemize}
+
+\section{Infraestrutura de Energia Robusta}
+
+\begin{itemize}
+	\item \textbf{Fonte de Energia Primária Diversificada}: Conectar a pelo menos duas subestações de energia independentes para garantir redundância no fornecimento de energia primária.
+	\item \textbf{Sistemas de Energia Redundante Avançados}: Implementar geradores de backup com capacidade de funcionamento autônomo por pelo menos 72 horas, com contratos de fornecimento de combustível de emergência. Utilizar UPS (Uninterruptible Power Supply) modulares e escaláveis com redundância N+1.
+	\item \textbf{Eficiência Energética Otimizada}: Utilizar equipamentos com certificação Energy Star, sistemas de free cooling, iluminação LED com sensores de presença e virtualização de servidores para reduzir o consumo de energia. Implementar um sistema de monitoramento de energia em tempo real para identificar oportunidades de otimização.
+	\item \textbf{Energia Renovável}: Considerar a integração de fontes de energia renovável, como painéis solares ou turbinas eólicas, para reduzir a dependência de combustíveis fósseis e diminuir o impacto ambiental.
+\end{itemize}
+
+\section{Segurança Multicamadas}
+
+\begin{itemize}
+	\item \textbf{Segurança Física Reforçada}: Implementar um sistema de controle de acesso físico com múltiplas camadas de segurança, incluindo biometria (impressão digital, reconhecimento facial, escaneamento de retina), cartões de acesso, portões de segurança, cercas perimetrais, câmeras de vigilância com análise de vídeo inteligente e vigilância 24/7 por pessoal treinado.
+	\item \textbf{Segurança de Dados Avançada}: Implementar firewalls de última geração, sistemas de detecção e prevenção de intrusões (IDS/IPS) com análise comportamental, criptografia de dados em repouso e em trânsito, autenticação multifator (MFA) e políticas de segurança rigorosas.
+	\item \textbf{Planos Abrangentes de Recuperação de Desastres}: Desenvolver e testar regularmente planos de recuperação de desastres (DRP) e planos de continuidade de negócios (BCP) que abordem uma ampla gama de cenários, incluindo falhas de hardware, ataques cibernéticos, desastres naturais e interrupções de energia. Realizar backups regulares e armazená-los em locais geograficamente distintos.
+	\item \textbf{Conformidade Regulatória}: Garantir a conformidade com as regulamentações de segurança de dados relevantes, como GDPR, HIPAA e PCI DSS.
+	\item \textbf{Testes de Penetração e Auditorias de Segurança}: Realizar testes de penetração e auditorias de segurança regulares para identificar vulnerabilidades e garantir a eficácia das medidas de segurança.
+\end{itemize}
+
+\chapter{Soluções Inovadoras Propostas}
+
+\section{Resfriamento Inteligente}
+
+\begin{itemize}
+	\item \textbf{Sistemas de Resfriamento HVAC de Alta Eficiência}: Utilizar sistemas de resfriamento HVAC (Heating, Ventilation, and Air Conditioning) com compressores de velocidade variável, economizadores e controles avançados para otimizar o desempenho e reduzir o consumo de energia.
+	\item \textbf{Resfriamento Líquido Direto (DLC)}: Considerar o uso de sistemas de resfriamento líquido direto (DLC) para servidores de alta densidade, que oferecem maior eficiência e capacidade de resfriamento do que os sistemas tradicionais.
+	\item \textbf{Hot Aisle/Cold Aisle Contained}: Implementar a configuração de corredores quentes e frios contidos para evitar a mistura de ar quente e frio e maximizar a eficiência do resfriamento.
+	\item \textbf{Free Cooling Avançado}: Utilizar sistemas de free cooling que aproveitam a temperatura ambiente para resfriar o data center, reduzindo a necessidade de refrigeração mecânica.
+	\item \textbf{Monitoramento e Otimização Contínuos}: Implementar um sistema de monitoramento em tempo real da temperatura, umidade e fluxo de ar para otimizar o desempenho do sistema de resfriamento e identificar problemas potenciais.
+\end{itemize}
+
+\section{Redes de Próxima Geração}
+
+\begin{itemize}
+	\item \textbf{Redes Definidas por Software (SDN)}: Implementar redes definidas por software (SDN) para aumentar a flexibilidade, escalabilidade e capacidade de gerenciamento da rede.
+	\item \textbf{Equipamentos de Rede de Ultra-Alta Performance}: Utilizar switches, roteadores e firewalls de ultra-alta performance com capacidade de 400 Gbps ou superior para suportar o tráfego de dados intenso de um e-commerce moderno.
+	\item \textbf{Redes Redundantes e Diversificadas}: Implementar redes redundantes com caminhos diversificados para garantir a continuidade da conectividade em caso de falhas.
+	\item \textbf{Microsegmentação de Rede}: Implementar microsegmentação de rede para isolar cargas de trabalho e reduzir a superfície de ataque.
+	\item \textbf{Monitoramento e Análise de Tráfego Avançados}: Implementar soluções de monitoramento e análise de tráfego avançados para identificar gargalos, detectar anomalias e otimizar o desempenho da rede.
+\end{itemize}
+
+\chapter{Esquema Básico do Layout Otimizado}
+
+O esquema básico do layout do data center deve incluir:
+
+\begin{enumerate}
+	\item \textbf{Salas de Servidores Modulares e Flexíveis}: Áreas dedicadas para racks de servidores, organizadas em corredores quentes e frios contidos. Utilizar um design modular e flexível para facilitar a expansão e a adaptação às mudanças nas necessidades de negócios.
+	\item \textbf{Salas de Energia Segregadas e Redundantes}: Áreas dedicadas para equipamentos de energia, incluindo UPS, geradores, painéis elétricos e sistemas de distribuição de energia. Segregar os sistemas de energia para evitar a propagação de falhas.
+	\item \textbf{Salas de Resfriamento Otimizadas}: Áreas dedicadas para os sistemas de resfriamento, como chillers, unidades de ar condicionado, bombas e torres de resfriamento. Otimizar o layout para minimizar a distância entre os equipamentos de resfriamento e as salas de servidores.
+	\item \textbf{Sala de Controle Centralizada e Segura}: Uma sala de controle centralizada e segura para os operadores monitorarem e gerenciarem o data center. A sala de controle deve ser equipada com sistemas de monitoramento avançados, consoles de gerenciamento e sistemas de comunicação de emergência.
+	\item \textbf{Áreas de Segurança Reforçadas}: Áreas dedicadas para sistemas de segurança, incluindo controle de acesso, vigilância, detecção de intrusões e prevenção de incêndios. Implementar um sistema de supressão de incêndios com gás inerte para proteger os equipamentos eletrônicos.
+	\item \textbf{Áreas de Manutenção e Logística}: Áreas dedicadas para manutenção, armazenamento de peças de reposição e logística.
+	\item \textbf{Escritórios e Áreas de Apoio}: Escritórios para equipes de gerenciamento, engenharia e suporte técnico. Áreas de apoio, como salas de reunião, refeitórios e vestiários.
+\end{enumerate}
+
+\chapter{Conclusão}
+
+Este projeto conceitual detalhado de data center visa atender às necessidades complexas e dinâmicas de uma empresa de e-commerce moderna, garantindo um ambiente seguro, eficiente, resiliente e escalável. Ao identificar os requisitos essenciais, propor soluções inovadoras e apresentar um esquema de layout otimizado, este plano fornece uma base sólida para o desenvolvimento de um data center de alta performance que pode impulsionar o sucesso de um negócio de e-commerce. A implementação deste projeto resultará em maior disponibilidade, melhor desempenho, custos operacionais reduzidos e maior capacidade de adaptação às mudanças nas necessidades de negócios.
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{referencias}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+%%%%%MF\phantompart
+%%%%%MF\printindex
+%---------------------------------------------------------------------
+
+\end{document}
