@@ -1,0 +1,2 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}

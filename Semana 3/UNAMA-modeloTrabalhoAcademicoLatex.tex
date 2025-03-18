@@ -1,0 +1,494 @@
+%% abtex2-modelo-trabalho-academico.tex, v-1.9.2 laurocesar
+%% Copyright 2012-2014 by abnTeX2 group at http://abntex2.googlecode.com/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%% 
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on 
+%% http://abntex2.googlecode.com/
+%%
+%% This work consists of the files abntex2-modelo-trabalho-academico.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Trabalho Academico (tese de doutorado, dissertacao de
+% mestrado e trabalhos monograficos em geral) em conformidade com 
+% ABNT NBR 14724:2011: Informacao e documentacao - Trabalhos academicos -
+% Apresentacao
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------
+% Modelo adaptado especificamente para o contexto do PPgSI-EACH-USP por 
+% Marcelo Fantinato, com auxílio dos Professores Norton T. Roman, Helton
+% H. Bíscaro e Sarajane M. Peres, em 2015, com muitos agradecimentos aos 
+% criadores da classe e do modelo base.
+%
+% 20/06/2017: inclusão de "lista de quadros" com base no especificado em:
+% https://github.com/abntex/abntex2/wiki/HowToCriarNovoAmbienteListing,
+% de autoria de "Eduardo de Santana Medeiros Alexandre".
+%
+%-------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	% openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão apenas no anverso (apenas frente). Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	%french,				% idioma adicional para hifenização
+	%spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+	]{abntex2unama}
+
+% ---
+% Pacotes básicos 
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{pdfpages}     %para incluir pdf
+\usepackage{algorithm}			%para ilustrações do tipo algoritmo
+\usepackage{mdwlist}			%para itens com espaço padrão da abnt
+\usepackage[noend]{algpseudocode}			%para ilustrações do tipo algoritmo
+		
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage{hyperref}
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf,abnt-etal-list=0,abnt-etal-text=it]{abntex2cite}	% Citações padrão ABNT
+
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``instituicao'':
+%
+% Não mexer. Deixar exatamente como está.
+%
+%-------------------------------------------------------------------------
+\instituicao{
+	UNIVERSIDADE DA AMAZÔNIA
+	\par
+	CURSO DE BACHARELADO EM CIÊNCIA DA COMPUTAÇÃO
+	\par
+	DISCIPLINA DE INFRAESTRUTURA DE DATACENTERS
+	}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``título'':
+%
+% Em maiúscula apenas a primeira letra da sentença (do título), exceto 
+% nomes próprios, geográficos, institucionais ou Programas ou Projetos ou 
+% siglas, os quais podem ter letras em maiúscula também.
+%
+% O subtítulo do trabalho é opcional.
+% Sem ponto final.
+%
+% Atenção: o título da Dissertação/Tese na versão corrigida não pode mudar. 
+% Ele deve ser idêntico ao da versão original.
+%
+%-------------------------------------------------------------------------
+\titulo{Projeto Conceitual de um Data Center de Alta Disponibilidade Tier III}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``autor'':
+%
+% Todas as letras em maiúsculas.
+% Nome completo.
+% Sem ponto final.
+% Para adicionar mais de um autor, basta acrescentar \\ entre os autores.
+%-------------------------------------------------------------------------
+\autor{\uppercase{Daniel Bahia Pinheiro Calliari}}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``local'':
+%
+% Não incluir o ``estado''.
+% Sem ponto final.
+%-------------------------------------------------------------------------
+\local{Belém}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre a ``data'':
+%
+% Colocar o ano do depósito (ou seja, o ano da entrega) da respectiva 
+% versão, seja ela a versão original (para a defesa) seja ela a versão 
+% corrigida (depois da aprovação na defesa). 
+%
+% Atenção: Se a versão original for depositada no final do ano e a versão 
+% corrigida for entregue no ano seguinte, o ano precisa ser atualizado no 
+% caso da versão corrigida. 
+% Cuidado, pois o ano da ``capa externa'' também precisa ser atualizado 
+% nesse caso.
+%
+% Não incluir o dia, nem o mês.
+% Sem ponto final.
+%-------------------------------------------------------------------------
+\data{2025}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``Orientador'':
+%
+% Se for uma professora, trocar por ``Profa. Dra.''
+% Nome completo.
+% Sem ponto final.
+%-------------------------------------------------------------------------
+\orientador{Prof. Dr. Fulano de Tal}
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``Coorientador'':
+%
+% Opcional. Incluir apenas se houver co-orientador formal, de acordo com o 
+% Regulamento do Programa.
+%
+% Se for uma professora, trocar por ``Profa. Dra.''
+% Nome completo.
+% Sem ponto final.
+%-------------------------------------------------------------------------
+\coorientador{Prof. Dr. Fulano de Tal}
+
+\tipotrabalho{Dissertação (Mestrado) / Tese (Doutorado)}
+
+\preambulo{
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o texto ``Versão 
+% original'':
+%
+% Não usar para Qualificação.
+% Não usar para versão corrigida de Dissertação/Tese.
+%
+%-------------------------------------------------------------------------
+Versão original \newline \newline \newline 
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o ``texto principal do
+% preambulo'':
+%
+% Para Doutorado, trocar por: Tese apresentada à Escola de Artes, Ciências e Humanidades da Universidade de São Paulo para obtenção do título de Doutor (ou Doutora) em Ciências pelo Programa de Pós-graduação em Sistemas de Informação. 
+%
+% Para Qualificação, trocar por: Projeto de pesquisa para exame de qualificação apresentado à Escola de Artes, Ciências e Humanidades da Universidade de São Paulo como parte dos requisitos para obtenção do título de Mestre (ou Doutor ou Doutora) em Ciências pelo Programa de Pós-graduação em Sistemas de Informação.
+%
+%-------------------------------------------------------------------------
+Trabalho acadêmico apresentado à Universidade da Amazônia como parte de disciplinas do Curso de Bacharelado em Ciência da Computação.
+%
+\newline \newline Área de concentração: Infraestrutura de Datacenters
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre o texto da ``Versão 
+% corrigida'':
+%
+% Não usar para Qualificação.
+% Não usar para versão original de Dissertação/Tese.
+% 
+% Substituir ``xx de xxxxxxxxxxxxxxx de xxxx'' pela ``data da defesa''.
+%
+%-------------------------------------------------------------------------
+% \newline \newline \newline Versão corrigida contendo as alterações solicitadas pela comissão julgadora em xx de xxxxxxxxxxxxxxx de xxxx. A versão original encontra-se em acervo reservado na Biblioteca da EACH-USP e na Biblioteca Digital de Teses e Dissertações da USP (BDTD), de acordo com a Resolução CoPGr 6018, de 13 de outubro de 2011.
+}
+% ---
+
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={laTeX com abnTeX2 adaptado para a UNAMA/ALC},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2unama}{trabalho acadêmico}{unama}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.25cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0cm}  % tente também \onelineskip
+\renewcommand{\baselinestretch}{1.5}
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+	% Controlar linhas orfas e viuvas
+  \clubpenalty10000
+  \widowpenalty10000
+  \displaywidowpenalty10000
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre a ``capa'':
+%
+% Esta é a ``capa'' principal/oficial do trabalho, a ser impressa apenas 
+% para os casos de encadernação simples (ou seja, em ``espiral'' com 
+% plástico na frente).
+% 
+% Não imprimir esta ``capa'' quando houver ``capa dura'' ou ``capa brochura'' 
+% em que estas mesmas informações já estão presentes nela.
+%
+%-------------------------------------------------------------------------
+\imprimircapa
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+
+
+
+%-------------------------------------------------------------------------
+% Comentário adicional do PPgSI - Informações sobre ``títulos de seções''
+% 
+% Para todos os títulos (seções, subseções, tabelas, ilustrações, etc.):
+%
+% Em maiúscula apenas a primeira letra da sentença (do título), exceto 
+% nomes próprios, geográficos, institucionais ou Programas ou Projetos ou
+% siglas, os quais podem ter letras em maiúscula também.
+%
+%-------------------------------------------------------------------------
+\chapter{Introdução}
+Este trabalho apresenta o planejamento de um data center de alta disponibilidade com classificação Tier III. O objetivo principal é garantir a continuidade operacional, atendendo a SLAs rigorosos e proporcionando escalabilidade e segurança.
+
+O projeto foi desenvolvido com base em padrões internacionais e melhores práticas, abordando aspectos como redundância, eficiência energética, segurança física e lógica, além de um layout otimizado para suportar as demandas atuais e futuras. A escolha do Tier III reflete um equilíbrio entre custo e benefício, garantindo alta disponibilidade (99.982\%) e capacidade de manutenção simultânea.
+
+\chapter{Escolha do Tier e Justificativa}
+\section{Tier III}
+O Tier III foi escolhido por oferecer alta disponibilidade (99.982\%) e capacidade de manutenção simultânea, com um equilíbrio entre custo e benefício. Ele exige redundância N+1 em sistemas críticos e permite manutenção sem interrupção das operações. Embora o Tier IV ofereça maior robustez, o Tier III atende às necessidades do cenário proposto, garantindo um custo-benefício adequado.
+
+O Tier IV é ainda mais robusto (considerado “fault-tolerant”), mas também muito mais caro e complexo de implantar. Em muitos cenários, o Tier III é suficiente para atender SLAs (Service Level Agreements) exigentes, mantendo um custo-benefício equilibrado.
+
+\chapter{Estratégias de Redundância}
+\section{Energia}
+\subsection{Entrada de Energia}
+Múltiplas entradas de energia da concessionária foram planejadas para garantir redundância. Caso não seja viável ter duas concessionárias distintas, serão utilizadas subestações ou alimentadores independentes.
+
+\subsection{UPS (Uninterruptible Power Supply)}
+Configuração N+1 será adotada, com cada UPS suportando a carga total e um adicional para redundância. As baterias serão dimensionadas para autonomia de 15 a 30 minutos, garantindo tempo suficiente para o startup dos geradores.
+
+\subsection{Geradores}
+Os geradores serão configurados em N+1, com capacidade para atender 100\% da carga crítica. Tanques de combustível terão autonomia mínima de 12 horas, idealmente 24 horas.
+
+\section{Redes}
+\subsection{ISPs (Internet Service Providers)}
+Serão contratados dois ou mais provedores distintos, com roteamento BGP (quando possível), garantindo redundância de rota. Caminhos físicos de fibra serão diversificados, com entradas diferentes no prédio, sempre que possível.
+
+\subsection{Equipamentos de Rede Internos}
+Switches, roteadores e firewalls serão configurados em pares redundantes, utilizando tecnologias como HSRP/VRRP para roteadores e stack ou VSS para switches. O cabeamento estruturado será feito com CAT6A ou superior e fibra ótica, garantindo caminhos redundantes (Patch Panel A e B).
+
+\subsection{Segmentação e Virtualização de Rede}
+VLANs serão criadas para segmentar o tráfego (produção, gerência, storage, etc.). Sistemas de virtualização de rede (SDN) poderão ser utilizados para melhorar o gerenciamento e a flexibilidade, com atenção especial à redundância.
+
+\section{Resfriamento}
+\subsection{Sistemas de Climatização}
+Projeto de N+1 nos equipamentos de ar-condicionado de precisão (CRAC/CRAH). Se utilizar água gelada, ter chillers redundantes com circuitos independentes.
+
+\subsection{Distribuição de Ar}
+Layout de corredores quentes e frios (“hot aisle/cold aisle”) para otimizar fluxo de ar e eficiência energética. Monitoramento de temperatura e umidade em vários pontos para identificar pontos de calor (hotspots).
+
+\subsection{Controles e Alarmes}
+Sistemas de controle ambiental integrados (BMS – Building Management System) para gerenciar temperatura, umidade e detecção de vazamentos. Alarmes e monitoramento 24/7, com notificação imediata em caso de falha em algum componente de refrigeração.
+
+\chapter{Layout Conceitual}
+\section{Disposição Física}
+\subsection{Sala Principal de Servidores}
+A sala principal será organizada com corredores quentes e frios. O corredor frio será onde ficam as portas frontais dos racks para admissão de ar frio, enquanto o corredor quente será onde o ar quente é expelido pela parte traseira dos racks. O espaço será planejado para comportar 10 racks inicialmente, com possibilidade de expansão futura.
+
+\subsection{Racks}
+Cada rack terá altura padrão de 42U e será dividido de forma lógica:
+\begin{itemize}
+	\item \textbf{Racks de rede:} switches de core/distribuição, roteadores e firewalls, normalmente posicionados nos primeiros racks para facilitar o cabeamento.
+	\item \textbf{Racks de servidores:} servidores em blade ou rack mount.
+	\item \textbf{Racks de storage:} equipamentos de armazenamento (SAN/NAS).
+\end{itemize}
+Será dada atenção especial à organização de cabos (cable management) e à separação de caminhos independentes para cabos de rede e de energia.
+
+\subsection{Sala de Backup / Tape Library / Cofre}
+Será ideal ter uma sala separada ou ao menos um espaço isolado para bibliotecas de fitas (tape library) e/ou equipamentos de backup em disco. Backups críticos serão mantidos em outro local (off-site) para contingência de desastres.
+
+\subsection{Sala de UPS e Painéis Elétricos}
+A sala de UPS será posicionada próxima à entrada de energia e distante da sala de servidores para evitar ruído e calor. O acesso será restrito e devidamente sinalizado.
+
+\subsection{Sala de Geradores}
+Os geradores serão instalados em uma sala externa ou isolada, com boa ventilação e segurança. Os tanques de combustível serão protegidos contra vazamentos e terão acesso controlado.
+
+\section{Equipamentos Principais}
+\subsection{Servidores}
+Será possível optar por servidores do tipo blade ou rack. Para demandas de virtualização, serão priorizados servidores de alta densidade, com recursos robustos de CPU, memória e interfaces de rede.
+
+\subsection{Storage}
+O armazenamento será baseado em SAN (Storage Area Network) utilizando protocolos Fibre Channel ou iSCSI. Os equipamentos terão redundância, incluindo controladoras duplas, discos configurados em RAID e fontes redundantes.
+
+\subsection{Sistemas de Backup}
+O sistema de backup contará com software especializado (como Veeam, CommVault ou Bacula) rodando em servidores dedicados. Poderão ser utilizadas tape libraries para retenção a longo prazo ou backups em disco com replicação off-site.
+
+\subsection{Equipamentos de Rede}
+Os equipamentos de rede incluirão:
+\begin{itemize}
+	\item \textbf{Core switches:} configurados em redundância (Stack ou Chassis-based).
+	\item \textbf{Firewalls:} operando em modo HA (High Availability).
+	\item \textbf{Roteadores:} redundantes para saída à internet e interconexão com outros sites.
+\end{itemize}
+
+\chapter{Considerações de Segurança}
+\section{Controle de Acesso Físico}
+Controle de acesso será implementado com crachás com autenticação, biometria e CFTV (circuito fechado de TV), garantindo monitoramento 24/7.
+
+\section{Proteção Contra Incêndio}
+Sistemas de detecção precoce (Vesda) serão instalados para identificar sinais iniciais de fumaça. A supressão será feita com gás inerte (FM200, Novec 1230) ou sprinklers baseados em água com pré-ação, dependendo da área e do risco envolvido.
+
+\section{Monitoramento e Gerenciamento}
+Ferramentas de DCIM (Data Center Infrastructure Management) serão utilizadas para consolidar o monitoramento de energia, refrigeração, rede e segurança, proporcionando uma visão integrada e facilitando a gestão proativa.
+
+\chapter{Apresentação dos Resultados}
+\section{Visão Geral}
+O conceito de Tier III foi escolhido devido ao equilíbrio entre custo e benefício, garantindo alta disponibilidade (99.982\%) e capacidade de manutenção simultânea. Cada redundância implementada, como N+1 em energia, redes e refrigeração, assegura continuidade operacional mesmo durante manutenções planejadas.
+
+\section{Diagramas}
+\subsection{Fluxo de Energia}
+O diagrama de fluxo de energia ilustra o caminho desde a concessionária até os racks, incluindo redundâncias como múltiplas entradas de energia, UPS em configuração N+1 e geradores.
+
+\subsection{Topologia de Rede}
+A topologia de rede apresenta caminhos redundantes, com ISPs distintos, switches e roteadores configurados em alta disponibilidade (HA), além de segmentação lógica por VLANs.
+
+\subsection{Layout Físico}
+O layout físico dos racks segue o esquema de corredores quentes e frios, otimizando o fluxo de ar e a eficiência energética. Cada rack é organizado para facilitar o gerenciamento e a expansão futura.
+
+\section{Pontos de Destaque}
+\subsection{Custo-Benefício}
+O Tier III foi escolhido por equilibrar alto nível de disponibilidade com investimentos mais razoáveis que um Tier IV. A redundância N+1 em sistemas críticos garante confiabilidade sem custos excessivos.
+
+\subsection{Estratégias de Contingência}
+As estratégias de contingência incluem geradores e UPS redundantes, storage com controladoras duplas e backups off-site, assegurando continuidade do negócio em situações adversas.
+
+\section{Planos Futuros}
+\subsection{Escalabilidade}
+O projeto prevê a possibilidade de expansão, com mais racks e servidores, para atender demandas futuras.
+
+\subsection{Upgrades Tecnológicos}
+Planos futuros incluem migração para redes de maior velocidade (25/40/100 GbE), adoção de novas tecnologias de armazenamento e implementação de ferramentas avançadas de automação e monitoramento (DCIM/AI).
+\chapter{Conclusão}
+Este projeto conceitual visa um data center de alta disponibilidade com classificação Tier III, garantindo N+1 em energia, refrigeração e conectividade de rede. O layout físico com hot aisle/cold aisle, a distribuição redundante de energia e a segmentação de rede permitem manutenção sem downtime, atendendo a SLAs rigorosos. A segurança física e lógica, aliada a um sistema de backup robusto (incluindo off-site), completa o escopo de um data center confiável e escalável.
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+% ----------------------------------------------------------
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+% \bibliography{referencias}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+%%%%%MF\phantompart
+%%%%%MF\printindex
+%---------------------------------------------------------------------
+
+\end{document}
