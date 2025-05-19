@@ -1,0 +1,140 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{v-1.9.7 }
+
+\bibitem[Almeida Felipe e~Martins 2022]{green_datacenters}
+\abntrefinfo{Almeida Felipe e~Martins}{ALMEIDA FELIPE E~MARTINS}{2022}
+{ALMEIDA FELIPE E~MARTINS, C. Data centers verdes: Tecnologias e práticas
+  sustentáveis.
+\emph{Revista Brasileira de Energia Renovável}, v.~12, n.~3, p. 78--93, 2022.}
+
+\bibitem[Andrade Marcelo e~Dias 2022]{reliability_engineering}
+\abntrefinfo{Andrade Marcelo e~Dias}{ANDRADE MARCELO E~DIAS}{2022}
+{ANDRADE MARCELO E~DIAS, C. \emph{Engenharia de Confiabilidade em Data Centers:
+  Métodos e Aplicações}. [S.l.]: Bookman, 2022.}
+
+\bibitem[Azevedo Marcos e~Gomes 2021]{dcim_systems}
+\abntrefinfo{Azevedo Marcos e~Gomes}{AZEVEDO MARCOS E~GOMES}{2021}
+{AZEVEDO MARCOS E~GOMES, T. \emph{Sistemas DCIM: Gestão Integrada de
+  Infraestrutura de Data Centers}. [S.l.]: Novatec, 2021.}
+
+\bibitem[Barros Leonardo e~Fonseca 2023]{dcim_evolution}
+\abntrefinfo{Barros Leonardo e~Fonseca}{BARROS LEONARDO E~FONSECA}{2023}
+{BARROS LEONARDO E~FONSECA, J. Evolução dos sistemas dcim: Da gestão reativa
+  à preditiva.
+\emph{Revista de Gestão de TI}, v.~17, n.~3, p. 78--95, 2023.}
+
+\bibitem[Cardoso Rafael e~Mendes 2023]{datacenter_networking}
+\abntrefinfo{Cardoso Rafael e~Mendes}{CARDOSO RAFAEL E~MENDES}{2023}
+{CARDOSO RAFAEL E~MENDES, L. \emph{Redes em Data Centers: Fundamentos e
+  Tecnologias Emergentes}. [S.l.]: Novatec, 2023.}
+
+\bibitem[Carvalho Diego e~Santos 2023]{datacenter_monitoring}
+\abntrefinfo{Carvalho Diego e~Santos}{CARVALHO DIEGO E~SANTOS}{2023}
+{CARVALHO DIEGO E~SANTOS, A. \emph{Monitoramento Avançado de Infraestrutura em
+  Data Centers}. [S.l.]: Brasport, 2023.}
+
+\bibitem[Ferreira Thiago e~Lopes 2023]{cooling_technologies}
+\abntrefinfo{Ferreira Thiago e~Lopes}{FERREIRA THIAGO E~LOPES}{2023}
+{FERREIRA THIAGO E~LOPES, M. \emph{Tecnologias de Resfriamento para Data
+  Centers de Alta Densidade}. [S.l.]: Érica, 2023.}
+
+\bibitem[Lima Marcelo e~Pereira 2023]{datacenter_security}
+\abntrefinfo{Lima Marcelo e~Pereira}{LIMA MARCELO E~PEREIRA}{2023}
+{LIMA MARCELO E~PEREIRA, J. \emph{Segurança em Data Centers: Estratégias
+  Físicas e Lógicas}. [S.l.]: Bookman, 2023.}
+
+\bibitem[Machado Bruno e~Oliveira 2023]{software_defined}
+\abntrefinfo{Machado Bruno e~Oliveira}{MACHADO BRUNO E~OLIVEIRA}{2023}
+{MACHADO BRUNO E~OLIVEIRA, F. Data centers definidos por software: Evolução e
+  tendências.
+\emph{Revista de Tecnologia da Informação}, v.~16, n.~3, p. 67--82, 2023.}
+
+\bibitem[Menezes Rafael e~Santos 2022]{edge_computing}
+\abntrefinfo{Menezes Rafael e~Santos}{MENEZES RAFAEL E~SANTOS}{2022}
+{MENEZES RAFAEL E~SANTOS, D. Edge computing e micro data centers: Tendências
+  para processamento distribuído.
+\emph{Revista de Infraestrutura Digital}, v.~16, n.~2, p. 34--49, 2022.}
+
+\bibitem[Monteiro Paulo e~Lima 2023]{energy_efficiency}
+\abntrefinfo{Monteiro Paulo e~Lima}{MONTEIRO PAULO E~LIMA}{2023}
+{MONTEIRO PAULO E~LIMA, B. Métricas de eficiência energética em data
+  centers: Pue e além.
+\emph{Revista Brasileira de Eficiência Energética}, v.~15, n.~2, p. 34--49,
+  2023.}
+
+\bibitem[Nascimento André e~Vieira 2022]{disaster_recovery}
+\abntrefinfo{Nascimento André e~Vieira}{NASCIMENTO ANDRé E~VIEIRA}{2022}
+{NASCIMENTO ANDRé E~VIEIRA, C. Estratégias de recuperação de desastres em
+  data centers críticos.
+\emph{Revista de Segurança da Informação}, v.~19, n.~2, p. 45--62, 2022.}
+
+\bibitem[Nunes Carlos e~Silva 2022]{liquid_cooling}
+\abntrefinfo{Nunes Carlos e~Silva}{NUNES CARLOS E~SILVA}{2022}
+{NUNES CARLOS E~SILVA, E. Resfriamento líquido em data centers: Eficiência e
+  densidade computacional.
+\emph{Revista Brasileira de Engenharia Térmica}, v.~14, n.~3, p. 89--102,
+  2022.}
+
+\bibitem[Pereira Lucas e~Souza 2023]{ai_automation}
+\abntrefinfo{Pereira Lucas e~Souza}{PEREIRA LUCAS E~SOUZA}{2023}
+{PEREIRA LUCAS E~SOUZA, M. Inteligência artificial na automação de data
+  centers: Aplicações e desafios.
+\emph{Revista Brasileira de Computação Aplicada}, v.~14, n.~2, p. 45--58,
+  2023.}
+
+\bibitem[Pinto Rafael e~Oliveira 2022]{datacenter_automation}
+\abntrefinfo{Pinto Rafael e~Oliveira}{PINTO RAFAEL E~OLIVEIRA}{2022}
+{PINTO RAFAEL E~OLIVEIRA, M. \emph{Automação e Orquestração de
+  Infraestrutura em Data Centers}. [S.l.]: Érica, 2022.}
+
+\bibitem[Ribeiro Miguel e~Costa 2022]{network_fabric}
+\abntrefinfo{Ribeiro Miguel e~Costa}{RIBEIRO MIGUEL E~COSTA}{2022}
+{RIBEIRO MIGUEL E~COSTA, A. Arquiteturas de rede spine-leaf em data centers
+  modernos.
+\emph{Revista Brasileira de Redes e Telecomunicações}, v.~15, n.~4, p.
+  112--127, 2022.}
+
+\bibitem[Rocha Gustavo e~Ferreira 2021]{modular_datacenters}
+\abntrefinfo{Rocha Gustavo e~Ferreira}{ROCHA GUSTAVO E~FERREIRA}{2021}
+{ROCHA GUSTAVO E~FERREIRA, B. \emph{Data Centers Modulares: Projetos e
+  Implementações}. [S.l.]: Elsevier Brasil, 2021.}
+
+\bibitem[Silveira Roberto e~Almeida 2022]{design_principles}
+\abntrefinfo{Silveira Roberto e~Almeida}{SILVEIRA ROBERTO E~ALMEIDA}{2022}
+{SILVEIRA ROBERTO E~ALMEIDA, C. \emph{Princípios de Design para Data Centers
+  Modernos}. [S.l.]: Elsevier Brasil, 2022.}
+
+\bibitem[Soares Victor e~Costa 2022]{containerization}
+\abntrefinfo{Soares Victor e~Costa}{SOARES VICTOR E~COSTA}{2022}
+{SOARES VICTOR E~COSTA, I. Containerização e orquestração em infraestrutura
+  de data centers.
+\emph{Revista Brasileira de Sistemas de Informação}, v.~12, n.~4, p.
+  103--118, 2022.}
+
+\bibitem[Souza Ricardo e~Oliveira 2023]{cloud_infrastructure}
+\abntrefinfo{Souza Ricardo e~Oliveira}{SOUZA RICARDO E~OLIVEIRA}{2023}
+{SOUZA RICARDO E~OLIVEIRA, P. \emph{Infraestrutura em Nuvem para Data Centers
+  Modernos}. [S.l.]: Atlas, 2023.}
+
+\bibitem[Teixeira Ricardo e~Miranda 2023]{power_distribution}
+\abntrefinfo{Teixeira Ricardo e~Miranda}{TEIXEIRA RICARDO E~MIRANDA}{2023}
+{TEIXEIRA RICARDO E~MIRANDA, L. Distribuição elétrica em data centers:
+  Arquiteturas modernas e sustentabilidade.
+\emph{Revista de Engenharia Elétrica e Controle}, v.~18, n.~2, p. 45--60,
+  2023.}
+
+\bibitem[Torres Renato e~Campos 2022]{capacity_planning}
+\abntrefinfo{Torres Renato e~Campos}{TORRES RENATO E~CAMPOS}{2022}
+{TORRES RENATO E~CAMPOS, A. \emph{Planejamento de Capacidade em Data Centers:
+  Metodologias e Práticas}. [S.l.]: LTC, 2022.}
+
+\bibitem[Vasconcelos Pedro e~Moraes 2022]{hyperscale_datacenters}
+\abntrefinfo{Vasconcelos Pedro e~Moraes}{VASCONCELOS PEDRO E~MORAES}{2022}
+{VASCONCELOS PEDRO E~MORAES, F. \emph{Data Centers Hiperescala: Arquitetura e
+  Operações}. [S.l.]: Campus, 2022.}
+
+\end{thebibliography}
